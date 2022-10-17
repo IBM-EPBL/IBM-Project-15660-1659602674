@@ -1,0 +1,25 @@
+{% extends "base.html" %} {% block title %}Home page{% endblock %}
+{% block content %}
+<div class="container my-5 table-responsive">
+    <table class="table align-middle table-dark table-hover">
+        <thead>
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">More data</th>
+            </tr>
+        </thead>
+        {% for user in data %}
+        <tr>
+            <th scope="row">{{user.id}}</th>
+            <td>{{user.firstName + " " + user.lastName}}</td>
+            <td>{{user.email}}</td>
+            <td><a href="{{url_for('views.userInfo', id=user.id)}}">View More</a></td>
+        </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}
