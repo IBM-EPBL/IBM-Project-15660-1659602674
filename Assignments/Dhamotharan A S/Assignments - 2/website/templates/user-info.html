@@ -1,0 +1,14 @@
+{% extends "base.html" %} {% block title %}Home page{% endblock %}
+{% block content %}
+
+<div class="container py-5 bg-dark text-white my-5 text-center">
+    <div class="container">
+        <h3>Full Details</h3>
+        <p>First Name: {{user.firstName}}</p>
+        <p>Last Name: {{user.lastName}}</p>
+        <p>Email: {{user.email}}</p>
+        <p>Contact: {{user.contact}}</p>
+    </div>
+</div>
+
+{% endblock %}
