@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Images</title>
+    <link href="https://ibm-assignment-3-projectid-15660-1659602674.s3.jp-tok.cloud-object-storage.appdomain.cloud/style.css" rel="stylesheet"> 
+</head>    
+<body>
+  <script>
+    window.watsonAssistantChatOptions = {
+      integrationID: "6f196fc5-4ad7-4761-b03d-f7a3a150059b", // The ID of this integration.
+      region: "au-syd", // The region your integration is hosted in.
+      serviceInstanceID: "438dc8b5-58a2-4bde-ba23-14aa9b4da261", // The ID of your service instance.
+      onLoad: function(instance) { instance.render(); }
+    };
+    setTimeout(function(){
+      const t=document.createElement('script');
+      t.src="https://web-chat.global.assistant.watson.appdomain.cloud/versions/" + (window.watsonAssistantChatOptions.clientVersion || 'latest') + "/WatsonAssistantChatEntry.js";
+      document.head.appendChild(t);
+    });
+  </script>
+    <div class="container">
+        <img class="item" src="https://yogesh.assignment3.s3.jp-tok.cloud-object-storage.appdomain.cloud/pexels-photo-205740.jpeg" height="400" width="400">
+        <img class="item" src="https://yogesh.assignment3.s3.jp-tok.cloud-object-storage.appdomain.cloud/pexels-photo-1671525.jpeg" height="400" width="400">
+        <img class="item" src="https://yogesh.assignment3.s3.jp-tok.cloud-object-storage.appdomain.cloud/pexels-photo-235298.jpeg" height="400" width="400"> 
+        <img class="item" src="https://yogesh.assignment3.s3.jp-tok.cloud-object-storage.appdomain.cloud/pexels-photo-2882234.jpeg" height="400" width="400">
+        <img class="item" src="https://yogesh.assignment3.s3.jp-tok.cloud-object-storage.appdomain.cloud/pexels-photo-3593922.jpeg" height="400" width="400">
+    </div>    
+</body>
+</html>
