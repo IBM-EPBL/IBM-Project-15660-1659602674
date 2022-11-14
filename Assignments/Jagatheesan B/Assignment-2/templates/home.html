@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Home</title>
+</head>
+<body>
+    <div class="container vh-100">
+        <div class="row text-center p-5">
+            <h1>Hello</h1>
+        </div>
+        <div class="row flex-column align-content-center">
+            <div class="col-md-6">
+                <table class="table table-striped">
+                    <thead>
+                        <th scope="col">S.No.</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Mail ID</th>
+                    </thead>
+                    <tbody>
+                        {% for i in rows %}
+                        <tr> 
+                            <th scope="row">1</th>
+                                <td>{{i["name"]}}</td>
+                                <td>{{i["mailid"]}}</td>
+                            </th>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
