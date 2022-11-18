@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Incomes</title>
+</head>
+<body>
+    <form action="addincome" method="POST">
+
+        <select name="incomename" value="select" id="incomenameid" oninput="sendincomename()">
+            <option id="select" value="--select--">--select--</option>
+            {% for i in userecons %}
+                <option value={{i}} class="options" id={{i}} >{{i}}</option>
+            {% endfor %}
+        </select>
+        <!-- {{userecons[4]}} -->
+        
+        <input type="number" name="specificincome" value="0" id="incomeamountid">
+        <input type="button" value="next" onclick="updateincomelist()">
+
+        <textarea type="textarea" name="allincomes" value="bang" id="incomelistid" hidden ></textarea> 
+        <input type="submit">
+    </form>
+    
+    <script>
+        incomename="select";
+        incomes={}
+        function sendincomename(){
+            incomename=document.getElementById("incomenameid").value        
+        }
+        function updateincomelist(){
+            incomeamount=document.getElementById("incomeamountid").value;
+            incomename=document.getElementById("incomenameid").value;
+            if (incomename!="--select--"){
+                incomes[incomename]=incomeamount
+                // console.log(incomes)
+                document.getElementById("incomeamountid").value=0;
+                document.getElementById("incomenameid").value="--select--";
+                incomeaddtomain(incomes)
+            }
+            
+        }
+        
+        function incomeaddtomain(incomes){
+            incomesstring=""
+            for(var key in incomes){
+                incomesstring+=String(key)+"|"+String(incomes[key])+",";
+            }
+            console.log(incomesstring);
+            document.getElementById("incomelistid").innerHTML=incomesstring;
+        }
+        
+        
+        
+    </script>
+</body>
+</html>

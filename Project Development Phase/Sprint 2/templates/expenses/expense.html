@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expenses</title>
+</head>
+<body>
+    <form action="addexpense" method="POST">
+
+        <select name="expensename" value="select" id="expensenameid" oninput="sendexpensename()">
+            <option id="select" value="--select--">--select--</option>
+            {% for i in userecons %}
+                <option value={{i}} class="options" id={{i}} >{{i}}</option>
+            {% endfor %}
+        </select>
+        <!-- {{userecons[4]}} -->
+        
+        <input type="number" name="specificexpense" value="0" id="expenseamountid">
+        <input type="button" value="next" onclick="updateexpenselist()">
+
+        <textarea type="textarea" name="allexpenses" value="bang" id="expenselistid" hidden ></textarea> 
+        <input type="submit">
+    </form>
+    
+    <script>
+        expensename="select";
+        expenses={}
+        function sendexpensename(){
+            expensename=document.getElementById("expensenameid").value        
+        }
+        function updateexpenselist(){
+            expenseamount=document.getElementById("expenseamountid").value;
+            expensename=document.getElementById("expensenameid").value;
+            if (expensename!="--select--"){
+                expenses[expensename]=expenseamount
+                // console.log(expenses)
+                document.getElementById("expenseamountid").value=0;
+                document.getElementById("expensenameid").value="--select--";
+                expenseaddtomain(expenses)
+            }
+            
+        }
+        
+        function expenseaddtomain(expenses){
+            expensesstring=""
+            for(var key in expenses){
+                expensesstring+=String(key)+"|"+String(expenses[key])+",";
+            }
+            console.log(expensesstring);
+            document.getElementById("expenselistid").innerHTML=expensesstring;
+        }
+        
+        
+        
+    </script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+.div-wrapper img {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+
+.row {
+    --bs-gutter-x: 0rem !important;
+}
+
+/* for expense section signup */
+
+textarea {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    background-color: rgb(249, 211, 217);
+}
+
+
+
+
+
+
+/* signup income section */
+
+
+
+input {
+    border-top-style: hidden !important;
+    border-right-style: hidden !important;
+    border-left-style: hidden !important;
+    border-bottom-style: groove !important;
+    background-color: rgb(249, 211, 217) !important;
+}
+
+select {
+
+    border-top-style: hidden !important;
+    border-right-style: hidden !important;
+    border-left-style: hidden !important;
+    border-bottom-style: groove !important;
+    background-color: rgb(249, 211, 217) !important;
+}
