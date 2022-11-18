@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database check</title>
+</head>
+<body>
+    <table>
+        <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>User id</th>
+            <th>Mail id</th>
+            <th>Mobile Number</th>
+            <th>Password</th>
+        </tr>
+        {% for i in userdetails %}
+        <tr> 
+            <td>{{i[0]}}</td>
+            <td>{{i[1]}}</td>
+            <td>{{i[2]}}</td>
+            <td>{{i[3]}}</td>
+            <td>{{i[4]}}</td>
+            <td>{{i[5]}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+<br><br><br>
+    <table>
+        <tr>
+            <th>Userid</th>
+            <th>Mail id</th>
+            <th>Mobile Number</th>
+            <th>Balance</th>
+            <th>Expenses</th>
+            <th>Incomes</th>
+        </tr>
+        {% for i in userecons %}
+        <tr> 
+            <td>{{i[0]}}</td>
+            <td>{{i[1]}}</td>
+            <td>{{i[2]}}</td>
+            <td>{{i[3]}}</td>
+            <td>{{i[4]}}</td>
+            <td>{{i[5]}}</td>
+        </tr>
+        {% endfor %}
+        <br><br><br>
+       
+       
+    </table>
+    {{usertable}}
+</body>
+</html>

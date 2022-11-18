@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <title>kanakkar-signup expense details</title>
+    <style>
+        
+    </style>
+</head>
+
+<body class="d-flex justify-content-center p-5 bd-highlight text-center">
+    <div class="p-3 rounded container" style="background: pink;">
+        <form action="/addexpensedetails" method="POST">
+            <div class="container">
+                <h1>Expense details</h1>
+            </div>
+            <div class="form-group">
+                <label for="expensename">Enter your different expenses seperated with ","</label>
+                <br>
+                <br>
+                <textarea type="textarea" name="expenses" rows="8" cols="50"></textarea><br><br>
+            </div>
+            <button type="submit" class="btn btn-primary">
+                submit
+            </button>
+        </form>
+    </div>
+</body>
+
+</html>
