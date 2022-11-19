@@ -2,6 +2,7 @@ from flask import Flask, render_template,request,url_for,flash,redirect,session
 from flask_session import Session
 import random,ibm_db
 from datetime import date,timedelta
+import matplotlib.pyplot as plt
 
 app = Flask(__name__)
 
@@ -69,19 +70,46 @@ def insertsql(tablename, fields, values):
     ibm_db.execute(prep_stmt)
 
 
+def getplot():
 
+    userid=session["userid"]
+    query="select expenses,expenses_amount from userexpenses where userid='"+userid+"' and date='"+str((date.today()) - timedelta(days=1))+"'"
+
+    stmt=ibm_db.exec_immediate(conn,query)
+    userexpenses=ibm_db.fetch_assoc(stmt)
+
+    while userexpenses:
+        expenseamounts=[];expensenames=[]
+        for i in str(userexpenses["EXPENSES"]).split(";"):
+            if i!='' and i!=" ":
+                expensenames.append(i)
+        for i in str(userexpenses["EXPENSES_AMOUNT"]).split(";"):
+            if i!='' and i!=" ":
+                expenseamounts.append(int(i))
+        plt.bar(expensenames,expenseamounts)
+        
+        
+        userexpenses=ibm_db.fetch_assoc(stmt)
+    plt.savefig("./static/images/myplot.png")
+
+    
+
+
+    
+    
 
 #---------------------------- authentication open --------------------------------------------------
 
 
 @app.route("/")
 def home():
-    try:
-        if session["userid"]:
-            streaks=getstreak(session["userid"])
-            return render_template("home.html",userid=session["userid"],streaks=streaks)
-    except:
-        return redirect(url_for("login"))
+    # try:
+    if session["userid"]:
+        streaks=getstreak(session["userid"])
+        # getplot()
+        return render_template("home.html",userid=session["userid"],streaks=streaks)
+    # except:
+    #     return redirect(url_for("login"))
     return redirect(url_for("login"))
 
 @app.route("/login",methods=['POST','GET'])
