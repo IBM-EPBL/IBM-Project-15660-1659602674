@@ -1,0 +1,7 @@
+Flask
+ibm_db
+sendgrid
+python-dotenv
+Jinja2==3.0.0rc2
+flask_session
+datetime

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    <title>kanakkar signup</title>
+    <style>
+        input {
+            border-top-style: hidden;
+            border-right-style: hidden;
+            border-left-style: hidden;
+            border-bottom-style: groove;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body class="container" style="overflow: hidden;">
+    
+    <div class="p-5">
+        <div class="d-flex justify-content-center p-5 bd-highlight">
+            <div class="container p-3 rounded" style="background: pink;">
+                <div class="container text-center my-5">
+                    <h1>Kannakar</h1>
+                    <h3>Track your expense with ease</h3>
+                </div>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                    <h6 class="text-dark text-center py-2">Error : {{ messages[0] }}</h6>
+                    {% endif %}
+                {% endwith %}
+                <div class="container">
+                    <form action="/createaccount" method="POST">
+                        <div class="">
+                            <div class="row row-cols-2">
+                                <div class="col text-end"><label for="firstname">First name</label></div>
+                                <div class="col"><input type="text" name="fname"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 text-end"><label for="firstname">Last name</label></div>
+                                <div class="col-6"><input type="text" name="lname"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 text-end"><label for="mobileno">Mobile Number</label></div>
+                                <div class="col-6"><input type="tel" name="mobileno"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 text-end"><label for="mailid">Mail-Id</label></div>
+                                <div class="col-6"><input type="email" name="email"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 text-end"><label for="password">Password</label></div>
+                                <div class="col-6"><input type="password" name="password"></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-6 text-end"><label for="cpassword">Confirm password</label></div>
+                                <div class="col-6"><input type="password" name="cpassword"></div>
+                            </div>
+                        </div>
+                        <div class="text-center my-3">
+                            <button class="btn btn-primary" type="submit">Sign up</button>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+
+</html>
