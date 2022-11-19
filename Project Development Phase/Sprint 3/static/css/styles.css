@@ -1,0 +1,92 @@
+body{
+    background-color: #F8F1F1;
+}
+
+.div-wrapper img {
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+}
+
+.row {
+    --bs-gutter-x: 0rem !important;
+}
+
+
+
+/* for expense section signup */
+
+textarea {
+    border-top-style: hidden;
+    border-right-style: hidden;
+    border-left-style: hidden;
+    border-bottom-style: groove;
+    background-color: rgb(249, 211, 217);
+}
+
+
+
+
+
+
+/* signup income section */
+
+
+
+
+
+
+ .updatearea{
+    background-color: #F4C8D2;
+    box-shadow: 2px 10px rgba(0,0,0,0.5);
+    border-radius: 5%;
+}
+.logarea{
+    background-color: #F4C8D2;
+    box-shadow: 2px 10px rgba(0,0,0,0.5);
+    border-radius: 5%;
+}
+
+ul{
+    list-style: none;
+}
+
+.card{
+    box-shadow: 2px 4px rgba(0,0,0,0.2);
+}
+
+.cover{
+    height: 450px;
+}
+
+.items{
+    text-align: center;
+    background-color: #E83C63;
+    border-radius: 5px;
+    color: #F8F1F1;
+    box-shadow: 3px 1px rgba(0,0,0,0.1);
+}
+
+
+
+/* scroll bar  */
+
+/* width */
+::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555; 
+  }

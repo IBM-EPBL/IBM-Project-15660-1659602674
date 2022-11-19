@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>kanakkar-signup income details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3"
+        crossorigin="anonymous"></script>
+    
+</head>
+<body class="container p-5 bd-highlight text-center">
+    <div class="container rounded p-5" style="background:pink;">
+        <h1 class="mb-4">Sign up income</h1>
+        <form action="/addnoofincome" method="POST">
+            <div class="form-group mb-3">
+                <label for="balance" class="form-label">Enter your available balance</label>
+                <input type="number" class="form-control" name="balance">
+            </div>
+
+            <div class="form-group mb-3">
+                <label for="noofincomes" class="form-label">Number of incomes</label>
+                <input type="number" name="noofincomes" class="form-control" min="0">
+            </div>
+
+            <button type="submit" class="btn" style="background: rgb(255, 0, 217);">Submit</button>
+
+        </form>
+    </div>
+    <br><br>
+    {% if session["numberofincomes"] %}
+    {% for i in range(numberofincomes)%}
+    <form action="/addincomedetails" method="POST">
+        <label for="incomename">Name your income</label>
+        <input required type="text" name="incomename"+{{i}}><br><br>
+        <label for="typeofincome">Type of income</label>
+        <select name="incometype" class="typeofincomeid" value="Select" oninput="updateinterval({{i}})">
+            <option value="select">--select--</option>
+            <option value="daily">Daily</option>
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+            <option value="annually">Annually</option>
+        </select>
+        <br><br>
+        <div class="selectupdate"></div>
+
+        <input type="submit" value="submit">
+        <br><br><br><br>
+    </form>
+    {% endfor %}
+    {% endif %}
+
+
+    <script>
+        function updateinterval(i){
+            var typeofincome=document.getElementsByClassName("typeofincomeid")[i].value;
+            var selectupdate=document.getElementsByClassName("selectupdate")[i];
+            if (typeofincome=="select")
+            selectupdate.innerHTML=''
+            else if(typeofincome=="daily") {
+                selectupdate.innerHTML='<label for="updationdate">Upate at every</label><input required type="time" name="utime"><br><br>'
+            }
+            else if(typeofincome=="weekly") {
+                selectupdate.innerHTML='<label for="updationdate">Upate at every</label><select required name="uinterval" value="Select"><option value="select">--select--</option><option value="monday">Monday</option><option value="tuesday">Tuesday</option><option value="wednessday">Wednessday</option><option value="thursday">Thursday</option><option value="friday">Friday</option><option value="saturday">Saturday</option><option value="sunday">Sunday</option></select><br><br><input required type="time" name="utime"><br><br>'
+            }
+            else if(typeofincome=="monthly") {
+                selectupdate.innerHTML='<label for="updationdate">Upate at every</label><input required required type="number" min="1" max="30" name="uinterval"><br><br><input required type="time" name="utime"><br><br>'
+            }
+            else if(typeofincome=="annually") {
+                selectupdate.innerHTML='<label for="updationdate">Upate at every</label><input required type="date" name="uinterval"><br><br><input required type="time" name="utime"><br><br>'
+            }
+
+        }
+    </script>
+</body>
+</html>
